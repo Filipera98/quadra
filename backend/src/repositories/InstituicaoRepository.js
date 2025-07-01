@@ -1,26 +1,26 @@
 import db from '../config/database.js';
 
 const getAllInstituicao = async () => {
-    const [rows] = await db.query('SELECT id, time_a_id, time_b_id, horario_inicio, endereco FROM JOGO');
+    const [rows] = await db.query('SELECT nome_instituicao, apelido, abreviacao, fundacao, estado_origem FROM INSTITUICAO');
     return rows;
 };
 
-const getInstituicaoById = async ( {id} ) => {
-    const [rows] = await db.query('SELECT id, time_a_id, time_b_id, horario_inicio, endereco FROM JOGO WHERE ID = ?', [id]);
+const getInstituicaoById = async ({ id }) => {
+    const [rows] = await db.query('SELECT nome_instituicao, apelido, abreviacao, fundacao, estado_origem FROM INSTITUICAO WHERE ID = ?', [id]);
     return rows;
 };
 
-const saveInstituicao = ({ time_a_id, time_b_id, horario_inicio, endereco }) => {
-    db.query('INSERT INTO JOGO (time_a_id, time_b_id, horario_inicio, endereco) VALUES (?, ?, ?)', [time_a_id, time_b_id, horario_inicio, endereco]);
+const saveInstituicao = ({ nome_instituicao, apelido, abreviacao, fundacao, estado_origem }) => {
+    db.query('INSERT INTO INSTITUICAO (nome_instituicao, apelido, abreviacao, fundacao, estado_origem) VALUES (?, ?, ?)', [nome_instituicao, apelido, abreviacao, fundacao, estado_origem]);
 
 };
 
-const updateInstituicaoById = ({ time_a_id, time_b_id, horario_inicio, endereco }) => {
-    db.query('UPDATE JOGO SET time_a_id, time_b_id, horario_inicio, endereco = ? WHERE id = ?', [time_a_id, time_b_id, horario_inicio, endereco]);
+const updateInstituicaoById = ({ nome_instituicao, apelido, abreviacao, fundacao, estado_origem }) => {
+    db.query('UPDATE INSTITUICAO SET nome_instituicao, apelido, abreviacao, fundacao, estado_origem = ? WHERE id = ?', [nome_instituicao, apelido, abreviacao, fundacao, estado_origem]);
 };
 
 const deleteInstituicaoById = ({ id }) => {
-    db.query('DELETE FROM JOGO WHERE ID= ?', [id]);
+    db.query('DELETE FROM INSTITUICAO WHERE ID= ?', [id]);
 };
 
 export default { getAllInstituicao, getInstituicaoById, saveInstituicao, updateInstituicaoById, deleteInstituicaoById };
