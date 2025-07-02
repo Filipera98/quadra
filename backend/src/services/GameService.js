@@ -1,4 +1,5 @@
 import GameRepository from '../repositories/GameRepository.js';
+
 const validTypes = ["P" ,"G"];
 const validStatuses = ["O", "C"];
 const getAllGames = async () => {

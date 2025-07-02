@@ -6,7 +6,7 @@ const getAllGames = async (request, response) => {
         console.log(game); 
         response.status(200).json({ message:`Jogo retrieved successfully`, game: game });                                             
     }catch(error){
-            console.log(error); // todo inserir um logger
+            console.log(error); // todo inserir um loggerr
             response.status(error.code).json({ message: `Error retrieving jogos: ${error.message}`});
     }
 };
