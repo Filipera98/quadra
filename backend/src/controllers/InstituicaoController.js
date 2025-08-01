@@ -34,8 +34,9 @@ const saveInstituicao = async (request, response) => {
 
 const updateInstituicaoById = async (request, response) => {
     try {
+        const { id } = request.params;
         const { nome_instituicao, apelido, abreviacao, fundacao, estado_origem } = request.body;
-        await InstituicaoService.updateInstituicaoById({ nome_instituicao, apelido, abreviacao, fundacao, estado_origem });
+        await InstituicaoService.updateInstituicaoById({ id, nome_instituicao, apelido, abreviacao, fundacao, estado_origem });
         response.status(200).json({ message: `Instituicao updated successfully.` });
     } catch (error) {
         console.log(error);

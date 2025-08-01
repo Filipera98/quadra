@@ -11,12 +11,12 @@ const getInstituicaoById = async ({ id }) => {
 };
 
 const saveInstituicao = ({ nome_instituicao, apelido, abreviacao, fundacao, estado_origem }) => {
-    db.query('INSERT INTO INSTITUICAO (nome_instituicao, apelido, abreviacao, fundacao, estado_origem) VALUES (?, ?, ?)', [nome_instituicao, apelido, abreviacao, fundacao, estado_origem]);
+    db.query('INSERT INTO INSTITUICAO (nome_instituicao, apelido, abreviacao, fundacao, estado_origem) VALUES (?, ?, ?, ?, ?)', [nome_instituicao, apelido, abreviacao, fundacao, estado_origem]);
 
 };
 
-const updateInstituicaoById = ({ nome_instituicao, apelido, abreviacao, fundacao, estado_origem }) => {
-    db.query('UPDATE INSTITUICAO SET nome_instituicao, apelido, abreviacao, fundacao, estado_origem = ? WHERE id = ?', [nome_instituicao, apelido, abreviacao, fundacao, estado_origem]);
+const updateInstituicaoById = ({ id, nome_instituicao, apelido, abreviacao, fundacao, estado_origem }) => {
+    db.query('UPDATE INSTITUICAO SET nome_instituicao = ?, apelido = ?, abreviacao = ?, fundacao = ?, estado_origem = ? WHERE id = ?', [nome_instituicao, apelido, abreviacao, fundacao, estado_origem, id]);
 };
 
 const deleteInstituicaoById = ({ id }) => {
