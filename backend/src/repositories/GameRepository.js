@@ -1,5 +1,6 @@
 import db from '../config/database.js';
-    const getAllGames = async () => {
+
+const getAllGames = async () => {
     const [rows] = await db.query('SELECT id, time_a_id, time_b_id, horario_inicio, endereco FROM JOGO');
     return rows;
 };
@@ -21,8 +22,5 @@ const updateGameById = ({ time_a_id, time_b_id, horario_inicio, endereco }) => {
 const deleteGameById = ({ id }) => {
     db.query('DELETE FROM JOGO WHERE ID= ?', [id]);
 };
-
-
-
 
 export default { getAllGames, getGameById, saveGame, updateGameById, deleteGameById };
